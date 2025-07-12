@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './styles/App.scss';
-import Header from './components/Header'; 
+import Header from './components/Header';
+import Home from './components/Home';
+import Footer from './components/Footer';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -8,14 +10,8 @@ function App() {
   return (
     <>
       <Header />
-
-      <main style={{ padding: '1rem' }}>
-        <h1>Bienvenido a mi E-Commerce</h1>
-        
-        <p className="read-the-docs">
-          Pronto aquí verás tus productos y ofertas.
-        </p>
-      </main>
+        <Home />
+     <Footer />
     </>
   );
 }

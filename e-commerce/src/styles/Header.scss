@@ -1,17 +1,23 @@
 @import './variables';
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: $spacing-md $spacing-lg;
+  display: block; 
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-family: $font-main;
   position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacing-md $spacing-lg;
+  }
 
   &__logo {
-    height: 80px;
+    height: 90px;
   }
 
   &__center {
@@ -49,6 +55,50 @@
 
     &:hover {
       color: darken($primary, 10%);
+    }
+  }
+}
+
+
+.header__nav {
+  margin-top: $spacing-sm;
+  background-color: #fff;
+  padding: 0 $spacing-lg;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+
+  .nav__list {
+    display: flex;
+    gap: $spacing-lg;
+    list-style: none;
+    padding: $spacing-sm 0;
+    margin: 0;
+
+    li {
+      position: relative;
+
+      span {
+        cursor: pointer;
+        color: $text-color;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.2s ease;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -4px;
+          width: 0%;
+          height: 2px;
+          background-color: $primary;
+          transition: width 0.3s ease;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+      }
     }
   }
 }

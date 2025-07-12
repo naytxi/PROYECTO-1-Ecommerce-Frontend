@@ -1,0 +1,54 @@
+@import './variables';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md $spacing-lg;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: $font-main;
+  position: sticky;
+
+  &__logo {
+    height: 80px;
+  }
+
+  &__center {
+    flex: 1;
+    margin: 0 $spacing-lg;
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    border: 1px solid $secondary;
+    border-radius: 4px;
+    padding: 4px 8px;
+    background-color: #fff;
+
+    input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: $font-size-base;
+      font-family: $font-main;
+    }
+
+    &-icon {
+      color: $secondary;
+      margin-left: 8px;
+    }
+  }
+
+  &__icon {
+    font-size: 34px;
+    color: $primary;
+    margin-left: $spacing-md;
+    cursor: pointer;
+
+    &:hover {
+      color: darken($primary, 10%);
+    }
+  }
+}

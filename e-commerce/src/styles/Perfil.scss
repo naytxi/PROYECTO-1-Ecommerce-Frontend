@@ -1,0 +1,40 @@
+
+@import "../styles/variables.scss";
+
+.perfil-container {
+  min-height: 100vh;
+  background-color: $background;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $font-main;
+  padding: $spacing-lg;
+}
+
+.perfil-box {
+  background: white;
+  padding: $spacing-lg;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba($primary, 0.3);
+  width: 100%;
+  max-width: 500px;
+}
+
+.perfil-title {
+  color: $title-color;
+  font-size: 28px;
+  margin-bottom: $spacing-lg;
+  text-align: center;
+}
+
+.perfil-dato {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+  font-size: $font-size-base;
+
+  .label {
+    font-weight: bold;
+    color: $primary;
+  }
+}

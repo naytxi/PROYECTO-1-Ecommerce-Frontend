@@ -102,3 +102,15 @@
     }
   }
 }
+
+.header__username {
+  font-size: $font-size-base;
+  color: $primary;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: $spacing-sm;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

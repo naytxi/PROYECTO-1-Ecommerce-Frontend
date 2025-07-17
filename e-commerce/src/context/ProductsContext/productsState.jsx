@@ -1,5 +1,3 @@
-// src/context/ProductsContext/ProductsState.jsx
-
 import { createContext, useReducer, useEffect } from 'react';
 import axios from 'axios';
 import ProductsReducer from './ProductsReducer';

@@ -59,7 +59,6 @@ const Register = () => {
   return (
     <div className="register-container">
       <div className="register-box">
-        <img src="/logo.png" alt="Logo" className="logo" />
         <h2 className="register-title">Registro</h2>
 
         <form className="register-form" onSubmit={handleSubmit}>

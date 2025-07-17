@@ -1,14 +1,20 @@
-
 import { useContext } from 'react';
-import { AuthContext } from '../context/AuthContext';
+import { UserContext } from '../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Perfil.scss';
 
 const Perfil = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(UserContext);
+  const navigate = useNavigate();
 
   if (!user) {
     return <div className="perfil-container">Cargando perfil...</div>;
   }
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
 
   return (
     <div className="perfil-container">
@@ -26,6 +32,10 @@ const Perfil = () => {
           <span className="label">Rol:</span>
           <span>{user.role}</span>
         </div>
+
+        <button className="logout-button" onClick={handleLogout}>
+          Cerrar sesión
+        </button>
       </div>
     </div>
   );

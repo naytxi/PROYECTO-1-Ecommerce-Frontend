@@ -1,10 +1,10 @@
 import { useState, useContext } from 'react';
-import { AuthContext } from '../context/AuthContext';
+import { UserContext } from '../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Login.scss';
 
 const Login = () => {
-  const { login } = useContext(AuthContext);
+  const { login } = useContext(UserContext);
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
@@ -16,9 +16,9 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    const res = await login(form.email, form.password);
+    const res = await login(form);
     if (res.success) {
-      navigate('/'); 
+      navigate('/');
     } else {
       setError(res.message);
     }
@@ -28,7 +28,7 @@ const Login = () => {
     <div className="login-container">
       <div className="login-box">
         <div className="login-header">
-          <img src="./public/Logo.png" alt="Logo" className="logo" />
+          <img src="/logo.png" alt="Logo" className="logo" />
           <h2 className="login-title">Login</h2>
         </div>
 

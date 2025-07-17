@@ -1,13 +1,11 @@
-
 import React, { useContext } from 'react';
 import '../styles/Header.scss';
 import { Link } from 'react-router-dom';
-
 import { FiSearch, FiUser, FiShoppingCart } from 'react-icons/fi';
-import { AuthContext } from '../context/AuthContext';
+import { UserContext } from '../context/UserContext';
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useContext(UserContext);
 
   return (
     <header className="header">

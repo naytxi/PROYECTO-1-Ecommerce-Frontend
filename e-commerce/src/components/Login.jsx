@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import { UserContext } from '../context/UserContext';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../styles/Login.scss';
 
 const Login = () => {
@@ -55,7 +56,7 @@ const Login = () => {
         {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
 
         <p className="signup-text">
-          ¿Nuevo? <a href="/register">Crea una cuenta</a>
+          ¿Nuevo? <Link to="/register">Crea una cuenta</Link>
         </p>
       </div>
     </div>

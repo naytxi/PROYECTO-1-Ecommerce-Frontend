@@ -1,6 +1,6 @@
 @import "../styles/variables.scss";
 
-.login-container {
+.register-container {
   min-height: 100vh;
   background-color: $background;
   display: flex;
@@ -11,8 +11,7 @@
   position: relative;
 }
 
-
-.login-box {
+.register-box {
   display: flex;
   flex-direction: column;
   background: white;
@@ -25,16 +24,13 @@
   text-align: center;
 }
 
-.logo {
-  width: 140px;
-}
-
-.login-title {
+.register-title {
   color: $title-color;
   font-size: 35px;
+  margin-bottom: $spacing-md;
 }
 
-.login-form {
+.register-form {
   display: flex;
   flex-direction: column;
   gap: $spacing-md;
@@ -56,13 +52,18 @@
     cursor: pointer;
     transition: 0.3s ease;
 
-    &:hover {
+    &:hover:not(:disabled) {
       background-color: darken($primary, 10%);
+    }
+
+    &:disabled {
+      background-color: lighten($primary, 30%);
+      cursor: default;
     }
   }
 }
 
-.signup-text {
+.login-text {
   margin-top: $spacing-md;
   font-size: 14px;
 
@@ -75,4 +76,3 @@
     }
   }
 }
-

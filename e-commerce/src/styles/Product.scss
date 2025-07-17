@@ -1,13 +1,75 @@
+@import './variables'; 
+
 .product-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: $spacing-lg;
+  justify-content: center;
+  padding: $spacing-lg;
+  background-color: $background;
+  font-family: $font-main;
 }
 
-.product-card {
-  width: 250px;
-  padding: 16px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+a.product-card {
+  text-decoration: none;
+  width: 260px;
+  padding: $spacing-md;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba($primary, 0.3);
+  color: $text-color;
+  font-size: $font-size-base;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba($primary, 0.4);
+  }
+
+  h3 {
+    font-size: 20px;
+    color: $title-color;
+    margin-bottom: $spacing-sm;
+    font-family: $heading-font;
+    text-decoration: none; 
+  }
+
+  p {
+    margin-bottom: $spacing-md;
+    color: $text-color;
+    font-size: $font-size-base;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: $spacing-md;
+    object-fit: cover;
+  }
+
+  span {
+    font-weight: bold;
+    margin-bottom: $spacing-sm;
+  }
+
+  button {
+    background-color: $primary;
+    color: white;
+    border: none;
+    padding: $spacing-sm $spacing-md;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: $font-main;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: darken($primary, 10%);
+    }
+  }
 }
+

@@ -1,5 +1,3 @@
-// src/context/ProductsContext/ProductsState.jsx
-
 import { createContext, useReducer, useEffect } from 'react';
 import axios from 'axios';
 import ProductsReducer from './ProductsReducer';
@@ -20,19 +18,13 @@ export const ProductsProvider = ({ children }) => {
 
   // Obtener productos del backend
   const getProducts = async () => {
-    try {
-      const res = await axios.get(`${API_URL}/productos`);
-
-      const productos = Array.isArray(res.data) ? res.data : res.data.products;
-
-      dispatch({
-        type: 'GET_PRODUCTS',
-        payload: productos,
-      });
-    } catch (error) {
-      console.error('Error al obtener productos:', error);
-    }
-  };
+  const res = await axios.get(API_URL + '/productos')
+    dispatch({
+      type: 'GET_PRODUCTS',
+      payload: res.data,
+    })
+    return res
+  }
 
   const addCart = (product) => {
     dispatch({

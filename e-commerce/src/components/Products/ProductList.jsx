@@ -1,32 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import "../../styles/Product.scss";
-import axios from "axios";
+import { ProductsContext } from "../../context/ProductsContext/ProductsState";
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { products, getProducts } = useContext(ProductsContext);
 
   useEffect(() => {
-    getProducts();
+    getProducts(); // usa el del context
   }, []);
 
-  const getProducts = async () => {
-    try {
-      const res = await axios.get("http://localhost:3000/productos");
-      setProducts(res.data); // verificar que es un array 
-    } catch (error) {
-      console.error("Error al cargar productos:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (loading) return <p>Cargando productos...</p>;
+  if (!products || products.length === 0) return <p>No hay productos disponibles</p>;
 
   return (
     <div className="product-list">
-      {Array.isArray(products) && products.map((prod) => (
+      {products.map((prod) => (
         <ProductCard key={prod.id} product={prod} />
       ))}
     </div>
@@ -34,4 +22,3 @@ const ProductList = () => {
 };
 
 export default ProductList;
-

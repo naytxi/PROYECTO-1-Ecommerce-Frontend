@@ -6,25 +6,25 @@ const destacados = [
     id: 1,
     nombre: 'Levis 501',
     precio: 'Desde 55,99€',
-    imagen: '../public/jeans.jpg',
+    imagen: '/jeans.jpg', // ✅ corregido
   },
   {
     id: 2,
     nombre: 'Ipad Model 2',
     precio: 'Desde 87,50€',
-    imagen: '../public/ipad.jpg',
+    imagen: '/ipad.jpg', // ✅ corregido
   },
   {
     id: 3,
     nombre: 'Mesa rústica francesa',
     precio: 'Desde 46,20€',
-    imagen: '../public/mesa.jpg',
+    imagen: '/mesa.jpg', // ✅ corregido
   },
   {
     id: 4,
     nombre: 'Biblia antigua',
     precio: 'Desde 9,99€',
-    imagen: '../public/biblia.jpg',
+    imagen: '/biblia.jpg', // ✅ corregido
   },
 ];
 
@@ -40,7 +40,7 @@ const Home = () => {
   useEffect(() => {
     const intervalo = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % carruselImagenes.length);
-    }, 4000); 
+    }, 4000);
 
     return () => clearInterval(intervalo);
   }, []);

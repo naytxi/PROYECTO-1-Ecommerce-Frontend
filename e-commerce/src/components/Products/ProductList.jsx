@@ -14,7 +14,7 @@ const ProductList = () => {
   const getProducts = async () => {
     try {
       const res = await axios.get("http://localhost:3000/productos");
-      setProducts(res.data); // ⚠️ Asegúrate que sea un array directamente
+      setProducts(res.data); // verificar que es un array 
     } catch (error) {
       console.error("Error al cargar productos:", error);
     } finally {

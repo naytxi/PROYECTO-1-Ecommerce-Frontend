@@ -1,42 +1,54 @@
-import { createContext, useReducer } from 'react'
-import axios from 'axios'
-import ProductsReducer from './ProductsReducer'
+// src/context/ProductsContext/ProductsState.jsx
 
-const cart = JSON.parse(localStorage.getItem('cart'))
+import { createContext, useReducer, useEffect } from 'react';
+import axios from 'axios';
+import ProductsReducer from './ProductsReducer';
+
+const cart = JSON.parse(localStorage.getItem('cart'));
 
 const initialState = {
   products: [],
   cart: cart ? cart : [],
-}
+};
 
-const API_URL = 'http://localhost:3000' // ajústalo si tu backend usa otro puerto
+const API_URL = 'http://localhost:3000';
 
-export const ProductsContext = createContext(initialState)
+export const ProductsContext = createContext(initialState);
 
 export const ProductsProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(ProductsReducer, initialState)
+  const [state, dispatch] = useReducer(ProductsReducer, initialState);
 
+  // Obtener productos del backend
   const getProducts = async () => {
-    const res = await axios.get(API_URL + '/products/getAll')
-    dispatch({
-      type: 'GET_PRODUCTS',
-      payload: res.data,
-    })
-    return res
-  }
+    try {
+      const res = await axios.get(`${API_URL}/productos`);
+
+      const productos = Array.isArray(res.data) ? res.data : res.data.products;
+
+      dispatch({
+        type: 'GET_PRODUCTS',
+        payload: productos,
+      });
+    } catch (error) {
+      console.error('Error al obtener productos:', error);
+    }
+  };
 
   const addCart = (product) => {
     dispatch({
       type: 'ADD_CART',
       payload: product,
-    })
-  }
+    });
+  };
 
   const clearCart = () => {
-    dispatch({
-      type: 'CLEAR_CART',
-    })
-  }
+    dispatch({ type: 'CLEAR_CART' });
+  };
+
+  // Guarda carrito en localStorage
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(state.cart));
+  }, [state.cart]);
 
   return (
     <ProductsContext.Provider
@@ -50,5 +62,5 @@ export const ProductsProvider = ({ children }) => {
     >
       {children}
     </ProductsContext.Provider>
-  )
-}
+  );
+};

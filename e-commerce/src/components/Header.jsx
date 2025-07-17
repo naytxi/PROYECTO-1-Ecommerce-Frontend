@@ -34,15 +34,16 @@ const Header = () => {
           <FiShoppingCart className="header__icon" />
         </div>
       </div>
+      
+<nav className="header__nav">
+  <ul className="nav__list">
+    <li><Link to="/">Home</Link></li>
+    <li><Link to="/productos">Productos</Link></li>
+    <li><Link to="/nosotros">Nosotros</Link></li>
+    <li><Link to="/contacto">Contacto</Link></li>
+  </ul>
+</nav>
 
-      <nav className="header__nav">
-        <ul className="nav__list">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/productos">Productos</Link></li>
-          <li><span>Nosotros</span></li>
-          <li><span>Contacto</span></li>
-        </ul>
-      </nav>
     </header>
   );
 };

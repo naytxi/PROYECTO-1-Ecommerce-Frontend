@@ -1,34 +1,37 @@
-import React, { useEffect, useState } from "react"
-import ProductCard from "./ProductCard"
-// import { useContext, useEffect } from "react"
-//import { ProductsContext } from "../../context/ProductsContext/ProductsState"
-import '../../styles/Product.scss'
-import axios from "axios"
+import React, { useEffect, useState } from "react";
+import ProductCard from "./ProductCard";
+import "../../styles/Product.scss";
+import axios from "axios";
 
 const ProductList = () => {
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getProducts()
-  }, [])
+    getProducts();
+  }, []);
 
   const getProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/productos")
-      setProducts(res.data);
+      const res = await axios.get("http://localhost:3000/productos");
+      setProducts(res.data); // ⚠️ Asegúrate que sea un array directamente
     } catch (error) {
-      console.error("Error al cargar productos:", error)
+      console.error("Error al cargar productos:", error);
+    } finally {
+      setLoading(false);
     }
-  }
+  };
+
+  if (loading) return <p>Cargando productos...</p>;
 
   return (
     <div className="product-list">
       {Array.isArray(products) && products.map((prod) => (
         <ProductCard key={prod.id} product={prod} />
       ))}
-
     </div>
-  )
-}
+  );
+};
 
-export default ProductList
+export default ProductList;
+

@@ -18,13 +18,19 @@ export const ProductsProvider = ({ children }) => {
 
   // Obtener productos del backend
   const getProducts = async () => {
-  const res = await axios.get(API_URL + '/productos')
-    dispatch({
-      type: 'GET_PRODUCTS',
-      payload: res.data,
-    })
-    return res
-  }
+    try {
+      const res = await axios.get(`${API_URL}/productos`);
+
+      const productos = Array.isArray(res.data) ? res.data : res.data.products;
+
+      dispatch({
+        type: 'GET_PRODUCTS',
+        payload: productos,
+      });
+    } catch (error) {
+      console.error('Error al obtener productos:', error);
+    }
+  };
 
   const addCart = (product) => {
     dispatch({

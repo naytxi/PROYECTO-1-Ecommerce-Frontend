@@ -22,4 +22,3 @@ const products = (state, action) => {
 
 export default products; 
 
-

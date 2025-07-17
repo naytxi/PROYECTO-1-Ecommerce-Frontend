@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const ProductDetail = () => {
-  const { id } = useParams(); // 🆔 ID desde la URL
+  const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getProductById();
@@ -16,14 +17,19 @@ const ProductDetail = () => {
       setProduct(res.data);
     } catch (error) {
       console.error("Error al obtener el producto:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
-  if (!product) return <p>Cargando producto...</p>;
+  if (loading) return <p>Cargando producto...</p>;
+  if (!product) return <p>Producto no encontrado</p>;
 
   return (
     <div className="product-detail">
-      <img src={product.image} alt={product.name} />
+      {product.image && (
+        <img src={product.image} alt={product.name} />
+      )}
       <h2>{product.name}</h2>
       <p>{product.description}</p>
       <span>{product.price} €</span>

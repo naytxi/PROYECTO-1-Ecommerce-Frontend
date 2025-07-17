@@ -38,7 +38,7 @@ const Header = () => {
       <nav className="header__nav">
         <ul className="nav__list">
           <li><Link to="/">Home</Link></li>
-          <li><span>Productos</span></li>
+          <li><Link to="/productos">Productos</Link></li>
           <li><span>Nosotros</span></li>
           <li><span>Contacto</span></li>
         </ul>

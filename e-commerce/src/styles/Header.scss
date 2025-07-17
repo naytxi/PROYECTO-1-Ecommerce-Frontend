@@ -69,19 +69,22 @@
 
   .nav__list {
     display: flex;
+    flex-direction: row; 
+    align-items: center;
     gap: $spacing-lg;
     list-style: none;
     padding: $spacing-sm 0;
     margin: 0;
 
     li {
+      list-style: none; 
       position: relative;
 
-      span {
-        cursor: pointer;
+      a, span {
         color: $text-color;
         font-weight: 500;
         text-decoration: none;
+        position: relative;
         transition: all 0.2s ease;
 
         &::after {
@@ -97,6 +100,10 @@
 
         &:hover::after {
           width: 100%;
+        }
+
+        &:hover {
+          color: $primary;
         }
       }
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Contacto.scss'; // (opcional para estilos personalizados)
+import '../styles/Contacto.scss'; 
 
 const Contacto = () => {
   return (

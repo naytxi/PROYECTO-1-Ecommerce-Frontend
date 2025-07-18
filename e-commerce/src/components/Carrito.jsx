@@ -5,8 +5,10 @@ import '../styles/Carrito.scss';
 const Carrito = () => {
   const { cart, clearCart, removeCartItem, updateCartQuantity } = useContext(ProductsContext);
 
-  // Calcula el total considerando la cantidad de cada producto
-  const total = cart.reduce((acc, item) => acc + (Number(item.product.price) * item.quantity), 0);
+  const total = cart.reduce((acc, item) => {
+  if (!item?.product || typeof item.product.price !== 'number') return acc;
+  return acc + (item.product.price * item.quantity);
+}, 0);
 
   const handleRemoveItem = (productId) => {
     removeCartItem(productId);
@@ -30,10 +32,10 @@ const Carrito = () => {
           <>
             <ul className="carrito-list">
               {cart.map((item) => ( // Cambiado 'prod' por 'item' para mayor claridad
-                <li key={item.product.id} className="carrito-item">
+                <li key={item.product?.id ?? Math.random()} className="carrito-item">
                   <div className="item-info">
-                    <span className="item-name">{item.product.name}</span>
-                    <span className="item-price">{item.product.price}€</span>
+                    <span className="item-name">{item.product?.name ?? 'Producto desconocido'}</span>
+                    <span className="item-price">{item.product?.price ?? 0}€</span>
                     <div className="item-quantity-controls">
                       <button
                         className="quantity-btn"

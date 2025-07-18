@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Perfil from './components/Perfil';
 import Register from './components/Register'; 
 import Home from './components/Home';
+import ProductList from './components/Products/ProductList';
 import ProductDetail from './components/Products/ProductDetail';
 import ProductList from './components/Products/ProductList';
 import Nosotros from './components/Nosotros';

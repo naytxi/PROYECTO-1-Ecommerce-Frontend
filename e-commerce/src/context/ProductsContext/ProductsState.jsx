@@ -2,15 +2,19 @@ import { createContext, useReducer, useEffect } from 'react';
 import axios from 'axios';
 import ProductsReducer from './ProductsReducer';
 
-// Inicializa el carrito desde localStorage. Si no hay, usa un array vacío.
-const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart')) || [];
+
+const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
+const cleanedCart = savedCart.filter(
+  item => item?.product && typeof item.quantity === 'number'
+);
+
 
 const initialState = {
   products: [],
-  cart: cartFromLocalStorage, // Usa el carrito de localStorage
+  cart: cleanedCart,
 };
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'http://localhost:3000'; 
 
 export const ProductsContext = createContext(initialState);
 
@@ -47,31 +51,35 @@ export const ProductsProvider = ({ children }) => {
         payload: { product, quantity: 1 }, // Añade el producto con cantidad
       });
     }
+    if (!product || !product.id) return; 
+    dispatch({
+      type: 'ADD_CART',
+      payload: product,
+    });
   };
+
 
   const clearCart = () => {
     dispatch({ type: 'CLEAR_CART' });
   };
 
+ 
+  const updateCartQuantity = (productId, newQuantity) => {
+    dispatch({
+      type: 'UPDATE_CART_QUANTITY', 
+      payload: { productId, quantity: newQuantity }, 
+    });
+  };
+
+  
   const removeCartItem = (productId) => {
     dispatch({
-      type: 'REMOVE_FROM_CART',
+      type: 'REMOVE_CART_ITEM', 
       payload: productId,
     });
   };
 
-  // Nueva función para actualizar la cantidad de un producto en el carrito
-  const updateCartQuantity = (productId, newQuantity) => {
-    if (newQuantity <= 0) {
-      removeCartItem(productId); // Si la cantidad es 0 o menos, elimínalo
-    } else {
-      dispatch({
-        type: 'UPDATE_CART_QUANTITY',
-        payload: { productId, quantity: newQuantity },
-      });
-    }
-  };
-
+ 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(state.cart));
   }, [state.cart]);
@@ -84,8 +92,8 @@ export const ProductsProvider = ({ children }) => {
         getProducts,
         addCart,
         clearCart,
+        updateCartQuantity,
         removeCartItem,
-        updateCartQuantity, // Añade la nueva función al contexto
       }}
     >
       {children}

@@ -6,10 +6,10 @@ import Perfil from './components/Perfil';
 import Register from './components/Register'; 
 import Home from './components/Home';
 import ProductDetail from './components/Products/ProductDetail';
+import ProductList from './components/Products/ProductList';
 import Nosotros from './components/Nosotros';
 import Contacto from './components/Contacto';
-import Products from "./pages/Products";
-import Carrito from './pages/Carrito';
+import Carrito from './components/Carrito';
 
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
 
           {/* Productos */}
-          <Route path="/productos" element={<Products />} />
+          <Route path="/productos" element={<ProductList />} />
           <Route path="/productos/:id" element={<ProductDetail />} />
 
           {/* Info */}

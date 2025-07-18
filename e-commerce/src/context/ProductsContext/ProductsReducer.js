@@ -1,4 +1,3 @@
-// src/context/ProductsContext/ProductsReducer.js
 const products = (state, action) => {
   switch (action.type) {
     case 'GET_PRODUCTS':
@@ -9,6 +8,7 @@ const products = (state, action) => {
     case 'ADD_CART':
       return {
         ...state,
+        // El payload ahora es { product, quantity }
         cart: [action.payload, ...state.cart],
       };
     case 'CLEAR_CART':
@@ -16,10 +16,20 @@ const products = (state, action) => {
         ...state,
         cart: [],
       };
-    case 'REMOVE_FROM_CART': //para eliminar
+    case 'REMOVE_FROM_CART':
       return {
         ...state,
-        cart: state.cart.filter((product) => product.id !== action.payload), // Filtra el producto por su ID
+        // El payload es el productId
+        cart: state.cart.filter((item) => item.product.id !== action.payload),
+      };
+    case 'UPDATE_CART_QUANTITY': //actualizar cantidad
+      return {
+        ...state,
+        cart: state.cart.map((item) =>
+          item.product.id === action.payload.productId
+            ? { ...item, quantity: action.payload.quantity }
+            : item
+        ),
       };
     default:
       return state;

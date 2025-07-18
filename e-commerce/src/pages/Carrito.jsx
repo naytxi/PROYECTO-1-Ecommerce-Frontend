@@ -3,12 +3,20 @@ import { ProductsContext } from '../context/ProductsContext/ProductsState';
 import '../styles/Carrito.scss';
 
 const Carrito = () => {
-  const { cart, clearCart, removeCartItem } = useContext(ProductsContext); // Obtén removeCartItem
+  const { cart, clearCart, removeCartItem, updateCartQuantity } = useContext(ProductsContext);
 
-  const total = cart.reduce((acc, product) => acc + Number(product.price), 0);
+  // Calcula el total considerando la cantidad de cada producto
+  const total = cart.reduce((acc, item) => acc + (Number(item.product.price) * item.quantity), 0);
 
   const handleRemoveItem = (productId) => {
-    removeCartItem(productId); // Llama a la función del contexto
+    removeCartItem(productId);
+  };
+
+  const handleUpdateQuantity = (productId, change) => {
+    const currentItem = cart.find(item => item.product.id === productId);
+    if (currentItem) {
+      updateCartQuantity(productId, currentItem.quantity + change);
+    }
   };
 
   return (
@@ -21,15 +29,31 @@ const Carrito = () => {
         ) : (
           <>
             <ul className="carrito-list">
-              {cart.map((prod, i) => (
-                <li key={prod.id || i} className="carrito-item"> {/* Usar prod.id como key si existe, si no, i */}
+              {cart.map((item) => ( // Cambiado 'prod' por 'item' para mayor claridad
+                <li key={item.product.id} className="carrito-item">
                   <div className="item-info">
-                    <span className="item-name">{prod.name}</span>
-                    <span className="item-price">{prod.price}€</span>
+                    <span className="item-name">{item.product.name}</span>
+                    <span className="item-price">{item.product.price}€</span>
+                    <div className="item-quantity-controls">
+                      <button
+                        className="quantity-btn"
+                        onClick={() => handleUpdateQuantity(item.product.id, -1)}
+                        disabled={item.quantity <= 1} // Deshabilita si la cantidad es 1 para no bajar de 0
+                      >
+                        -
+                      </button>
+                      <span className="item-quantity">{item.quantity}</span>
+                      <button
+                        className="quantity-btn"
+                        onClick={() => handleUpdateQuantity(item.product.id, 1)}
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
                   <button
                     className="item-remove-btn"
-                    onClick={() => handleRemoveItem(prod.id)}
+                    onClick={() => handleRemoveItem(item.product.id)}
                   >
                     X
                   </button>

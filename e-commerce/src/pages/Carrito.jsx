@@ -1,17 +1,14 @@
-// src/components/Cart/Carrito.jsx
 import React, { useContext } from 'react';
 import { ProductsContext } from '../context/ProductsContext/ProductsState';
 import '../styles/Carrito.scss';
 
 const Carrito = () => {
-  const { cart, clearCart } = useContext(ProductsContext);
+  const { cart, clearCart, removeCartItem } = useContext(ProductsContext); // Obtén removeCartItem
 
   const total = cart.reduce((acc, product) => acc + Number(product.price), 0);
 
-  // Función placeholder para eliminar un producto individual (la implementaremos después)
   const handleRemoveItem = (productId) => {
-    console.log("Eliminar producto con ID:", productId);
-    // Aquí llamaremos a la función del contexto para eliminar el producto
+    removeCartItem(productId); // Llama a la función del contexto
   };
 
   return (
@@ -25,7 +22,7 @@ const Carrito = () => {
           <>
             <ul className="carrito-list">
               {cart.map((prod, i) => (
-                <li key={i} className="carrito-item">
+                <li key={prod.id || i} className="carrito-item"> {/* Usar prod.id como key si existe, si no, i */}
                   <div className="item-info">
                     <span className="item-name">{prod.name}</span>
                     <span className="item-price">{prod.price}€</span>

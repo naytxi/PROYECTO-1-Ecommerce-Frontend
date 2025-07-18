@@ -1,3 +1,4 @@
+// src/context/ProductsContext/ProductsReducer.js
 const products = (state, action) => {
   switch (action.type) {
     case 'GET_PRODUCTS':
@@ -15,10 +16,14 @@ const products = (state, action) => {
         ...state,
         cart: [],
       };
+    case 'REMOVE_FROM_CART': //para eliminar
+      return {
+        ...state,
+        cart: state.cart.filter((product) => product.id !== action.payload), // Filtra el producto por su ID
+      };
     default:
       return state;
   }
 };
 
-export default products; 
-
+export default products;

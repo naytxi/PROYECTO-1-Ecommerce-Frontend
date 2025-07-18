@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { ProductsContext } from "../../context/ProductsContext/ProductsState"; // Importa ProductsContext
+import '../../styles/ProductDetail.scss';
 
 const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const { addCart } = useContext(ProductsContext);
   useEffect(() => {
     getProductById();
   }, []);
@@ -22,18 +24,31 @@ const ProductDetail = () => {
     }
   };
 
-  if (loading) return <p>Cargando producto...</p>;
-  if (!product) return <p>Producto no encontrado</p>;
+  const handleAddToCart = () => {
+    if (product) {
+      addCart(product);
+      alert(`${product.name} añadido al carrito!`);
+    }
+  };
+
+  if (loading) return <p className="loading-message">Cargando producto...</p>;
+  if (!product) return <p className="not-found-message">Producto no encontrado</p>;
 
   return (
-    <div className="product-detail">
-      {product.image && (
-        <img src={product.image} alt={product.name} />
-      )}
-      <h2>{product.name}</h2>
-      <p>{product.description}</p>
-      <span>{product.price} €</span>
-      {/* Puedes agregar categorías, reviews, etc. más adelante */}
+    <div className="product-detail-page">
+      <div className="product-detail-container">
+        {product.image && (
+          <img src={product.image} alt={product.name} className="product-detail-image" />
+        )}
+        <div className="product-detail-info">
+          <h2>{product.name}</h2>
+          <p className="product-detail-description">{product.description}</p>
+          <span className="product-detail-price">{product.price} €</span>
+          <button className="add-cart-btn" onClick={handleAddToCart}>
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

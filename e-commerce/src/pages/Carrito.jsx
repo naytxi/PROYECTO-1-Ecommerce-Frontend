@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { ProductsContext } from '../context/ProductsContext/ProductsState';
-import '../styles/Carrito.scss'; // si aún no existe, lo crearemos luego
+import '../styles/Carrito.scss'; 
 
 const Carrito = () => {
   const { cart, clearCart } = useContext(ProductsContext);
+  // Sumar todos los precios del carrito
+  const total = cart.reduce((acc, product) => acc + Number(product.price), 0);
 
   return (
     <div className="carrito">
@@ -21,7 +23,11 @@ const Carrito = () => {
             ))}
           </ul>
 
-          <button onClick={clearCart}>Vaciar carrito</button>
+    <div className="total">
+        <p>Total a pagar: <strong>${total.toFixed(2)}</strong></p>
+    </div>
+
+    <button onClick={clearCart}>Vaciar carrito</button>
         </>
       )}
     </div>

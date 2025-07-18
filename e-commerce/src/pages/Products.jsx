@@ -1,6 +1,8 @@
 import React, { useEffect, useContext } from "react";
 import ProductCard from "../components/Products/ProductCard";
 import { ProductsContext } from "../context/ProductsContext/ProductsState";
+import "../styles/Product.scss";
+
 
 const Products = () => {
   const { products, getProducts } = useContext(ProductsContext);

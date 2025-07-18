@@ -31,18 +31,20 @@ const Header = () => {
               <FiUser className="header__icon" />
             </Link>
           )}
-          <FiShoppingCart className="header__icon" />
+           <Link to="/carrito">
+            <FiShoppingCart className="header__icon" />
+          </Link>
         </div>
       </div>
       
-<nav className="header__nav">
-  <ul className="nav__list">
-    <li><Link to="/">Home</Link></li>
-    <li><Link to="/productos">Productos</Link></li>
-    <li><Link to="/nosotros">Nosotros</Link></li>
-    <li><Link to="/contacto">Contacto</Link></li>
-  </ul>
-</nav>
+      <nav className="header__nav">
+        <ul className="nav__list">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/productos">Productos</Link></li>
+          <li><Link to="/nosotros">Nosotros</Link></li>
+          <li><Link to="/contacto">Contacto</Link></li>
+        </ul>
+      </nav>
 
     </header>
   );

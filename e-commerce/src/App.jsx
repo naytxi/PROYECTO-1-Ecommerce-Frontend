@@ -9,6 +9,8 @@ import ProductDetail from './components/Products/ProductDetail';
 import Nosotros from './components/Nosotros';
 import Contacto from './components/Contacto';
 import Products from "./pages/Products";
+import Carrito from './pages/Carrito';
+
 
 function App() {
   return (
@@ -32,6 +34,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/register" element={<Register />} />
+
+          {/* carrito */}
+          <Route path="/carrito" element={<Carrito />} />
         </Routes>
       </main>
 

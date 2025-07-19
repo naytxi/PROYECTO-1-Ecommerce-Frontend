@@ -20,10 +20,10 @@
 
 .product-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 48px; // O el valor que desees, por ejemplo, 40px, 50px, etc.
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 35px; 
   justify-items: center;
-  padding: $spacing-md 0;
+  padding: $spacing-md;
 }
 
 .product-card {
@@ -68,7 +68,7 @@
   }
 
   h3 {
-    font-size: $font-size-md; // Cambiado a $font-size-md para el título del producto
+    font-size: $font-size-md; 
     color: $title-color;
     margin-bottom: $spacing-sm;
     font-family: $heading-font;
@@ -84,13 +84,13 @@
 
   span {
     font-weight: bold;
-    color: $secondary; // Usando $secondary para el precio
+    color: $secondary; 
     font-size: $font-size-lg;
     margin-bottom: $spacing-md;
   }
 
   .add-cart-btn {
-    background-color: #f26522; // Naranja del botón de login
+    background-color: #f26522; 
     color: white;
     border: none;
     padding: $spacing-sm $spacing-md;

@@ -3,9 +3,12 @@ import '../styles/Header.scss';
 import { Link } from 'react-router-dom';
 import { FiSearch, FiUser, FiShoppingCart } from 'react-icons/fi';
 import { UserContext } from '../context/UserContext';
+import { ProductsContext } from '../context/ProductsContext/ProductsState'; // ✅ nuevo
 
 const Header = () => {
   const { user } = useContext(UserContext);
+  const { cart } = useContext(ProductsContext); // ✅ nuevo
+  const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0); // ✅ nuevo
 
   return (
     <header className="header">
@@ -31,8 +34,11 @@ const Header = () => {
               <FiUser className="header__icon" />
             </Link>
           )}
-           <Link to="/carrito">
+
+          {/* ✅ Modificado para mostrar contador */}
+          <Link to="/carrito" className="header__cart">
             <FiShoppingCart className="header__icon" />
+            {totalItems > 0 && <span className="header__cart-count">{totalItems}</span>}
           </Link>
         </div>
       </div>
@@ -45,7 +51,6 @@ const Header = () => {
           <li><Link to="/contacto">Contacto</Link></li>
         </ul>
       </nav>
-
     </header>
   );
 };

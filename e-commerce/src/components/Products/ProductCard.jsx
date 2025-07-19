@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
 import { ProductsContext } from "../../context/ProductsContext/ProductsState";
 
 const ProductCard = ({ product }) => {
   const { addCart } = useContext(ProductsContext);
+  const [added, setAdded] = useState(false); // ✅ nuevo
 
  
   const handleAddToCartClick = (e) => {
     e.preventDefault(); 
     e.stopPropagation(); 
     addCart(product);
+    setAdded(true); // ✅ activamos el feedback
+
+    setTimeout(() => setAdded(false), 2000); // ✅ lo quitamos a los 2s
   };
 
   return (

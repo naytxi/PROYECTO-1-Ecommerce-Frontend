@@ -19,23 +19,23 @@ function App() {
 
       <main>
         <Routes>
-          {/* Página principal */}
+  
           <Route path="/" element={<Home />} />
 
-          {/* Productos */}
+        
           <Route path="/productos" element={<ProductList />} />
           <Route path="/productos/:id" element={<ProductDetail />} />
 
-          {/* Info */}
+       
           <Route path="/nosotros" element={<Nosotros />} />     
           <Route path="/contacto" element={<Contacto />} />   
 
-          {/* Usuarios */}
+          
           <Route path="/login" element={<Login />} />
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/register" element={<Register />} />
 
-          {/* carrito */}
+         
           <Route path="/carrito" element={<Carrito />} />
         </Routes>
       </main>

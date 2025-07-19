@@ -7,7 +7,7 @@ const ProductList = () => {
   const { products, getProducts } = useContext(ProductsContext);
 
   useEffect(() => {
-    getProducts(); // usa el del context
+    getProducts(); 
   }, []);
 
   if (!products || products.length === 0) return <p>No hay productos disponibles</p>;

@@ -5,7 +5,7 @@
   justify-content: center;
   padding: $spacing-lg;
   background-color: $background;
-  min-height: calc(100vh - 120px); // Ajusta según tu Header/Footer
+  min-height: calc(100vh - 120px);
   font-family: $font-main;
   color: $text-color;
 }
@@ -96,16 +96,16 @@
 
   .item-price {
     color: $secondary;
-    margin-right: $spacing-md; // Espacio entre precio y controles de cantidad
+    margin-right: $spacing-md; 
   }
 
   .item-quantity-controls {
     display: flex;
     align-items: center;
-    margin-top: $spacing-sm / 2; // Espacio en móvil
+    margin-top: $spacing-sm / 2; 
     
     @media (min-width: 480px) {
-        margin-top: 0; // Elimina espacio en desktop
+        margin-top: 0; 
     }
 
     .quantity-btn {
@@ -133,7 +133,7 @@
       margin: 0 $spacing-sm;
       font-size: $font-size-base;
       font-weight: bold;
-      min-width: 20px; // Asegura que el número no se desborde
+      min-width: 20px; 
       text-align: center;
     }
   }

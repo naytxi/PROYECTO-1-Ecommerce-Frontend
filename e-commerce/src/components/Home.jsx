@@ -6,25 +6,25 @@ const destacados = [
     id: 1,
     nombre: 'Levis 501',
     precio: 'Desde 55,99€',
-    imagen: '/jeans.jpg', // ✅ corregido
+    imagen: '/jeans.jpg',
   },
   {
     id: 2,
     nombre: 'Ipad Model 2',
     precio: 'Desde 87,50€',
-    imagen: '/ipad.jpg', // ✅ corregido
+    imagen: '/ipad.jpg', 
   },
   {
     id: 3,
     nombre: 'Mesa rústica francesa',
     precio: 'Desde 46,20€',
-    imagen: '/mesa.jpg', // ✅ corregido
+    imagen: '/mesa.jpg', 
   },
   {
     id: 4,
     nombre: 'Biblia antigua',
     precio: 'Desde 9,99€',
-    imagen: '/biblia.jpg', // ✅ corregido
+    imagen: '/biblia.jpg', 
   },
 ];
 

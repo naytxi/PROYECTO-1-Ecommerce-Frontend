@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { ProductsContext } from "../../context/ProductsContext/ProductsState"; // Importa ProductsContext
+import { ProductsContext } from "../../context/ProductsContext/ProductsState"; 
 import '../../styles/ProductDetail.scss';
 
 const ProductDetail = () => {

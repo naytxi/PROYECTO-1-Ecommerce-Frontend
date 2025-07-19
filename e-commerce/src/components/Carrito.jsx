@@ -28,7 +28,7 @@ const Carrito = () => {
     if (!token || cart.length === 0) return;
 
     try {
-      // ✅ FILTRAMOS PRODUCTOS VÁLIDOS
+
       const productos = cart
         .filter(item => item?.product?.id && item.quantity > 0)
         .map(item => ({
@@ -36,21 +36,15 @@ const Carrito = () => {
           cantidad: item.quantity
         }));
 
-      // ✅ MOSTRAMOS LO QUE SE VA A ENVIAR AL BACKEND
-      console.log("🟦 Enviando al backend los productos del carrito:");
-      console.log(productos);
-
       const response = await axios.post('http://localhost:3000/pedidos', { productos }, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
-      // ✅ MOSTRAMOS RESPUESTA DEL SERVIDOR
-      console.log("🟩 Respuesta del backend:", response.data);
-
+    
       clearCart();
       alert('¡Pedido realizado con éxito!');
     } catch (error) {
-      // ✅ SI FALLA, MOSTRAMOS ERROR DETALLADO
+      
       console.error('🟥 Error al realizar el pedido:', error.response?.data || error.message);
       alert('Ocurrió un error al realizar el pedido.');
     }

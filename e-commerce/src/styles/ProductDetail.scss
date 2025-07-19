@@ -45,7 +45,7 @@
   flex-grow: 1;
   text-align: center;
 
-  
+
   @media (min-width: 768px) {
     text-align: left;
   }
@@ -90,7 +90,7 @@
   }
 }
 
-// Mensajes de carga/no encontrado
+
 .loading-message, .not-found-message {
   text-align: center;
   padding: $spacing-lg;

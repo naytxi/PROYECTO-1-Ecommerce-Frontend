@@ -130,3 +130,22 @@
     font-size: 1rem;
   }
 }
+
+.search-filter-bar {
+  max-width: 600px;
+  margin: 2rem auto 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  input, select {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    flex: 1;
+    min-width: 200px;
+  }
+}
+

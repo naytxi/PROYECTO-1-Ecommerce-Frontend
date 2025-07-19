@@ -66,6 +66,28 @@
     color: $title-color;
     margin-bottom: $spacing-sm / 2;
 
+
+    .carrito-pagar-btn {
+  background-color: $primary;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.carrito-pagar-btn:disabled {
+  background-color: $secondary;
+  cursor: not-allowed;
+}
+
+.login-warning {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
     @media (min-width: 480px) {
       margin-right: $spacing-md;
       margin-bottom: 0;
@@ -171,5 +193,36 @@
       background-color: darken($primary, 10%);
       transform: translateY(-2px);
     }
+  }
+
+  .carrito-pagar-btn {
+    background-color: $primary;
+    color: white;
+    border: none;
+    padding: $spacing-md $spacing-lg;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: $font-main;
+    font-weight: bold;
+    font-size: $font-size-base;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    margin-left: $spacing-md;
+
+    &:hover {
+      background-color: darken($primary, 10%);
+      transform: translateY(-2px);
+    }
+
+    &:disabled {
+      background-color: $secondary;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+  }
+
+  .carrito-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: $spacing-md;
   }
 }

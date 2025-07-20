@@ -1,0 +1,94 @@
+@import './variables';
+
+.home {
+  width: 100%;
+  font-family: $font-main;
+
+  &__hero {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+
+    .home__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 70%;
+    }
+
+    .home__lema {
+      position: absolute;
+      top: 10%;
+      background-color: white;
+      padding: $spacing-md;
+      max-width: 350px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+      h2 {
+        color: $primary;
+        font-size: 2.5rem;
+        line-height: 1.4;
+        margin: 0;
+      }
+    }
+  }
+
+  &__destacados {
+    padding: $spacing-lg;
+
+    h3 {
+      color: $title-color;
+      font-size: 3rem;
+      margin-bottom: $spacing-lg;
+      text-align: center; 
+    }
+
+.home__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 80px;
+  max-width: 800px;
+  margin: auto;
+
+  .home__card {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: $spacing-md; 
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+    border: 2px solid lighten($primary, 40%);
+    min-height: 140px; 
+  
+    &:hover {
+      box-shadow: 0 4px 12px $primary;
+    }
+
+    .home__card-img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-right: $spacing-md;
+    }
+
+    .home__card-info {
+      h4 {
+        margin: 0;
+        font-size: 2rem;
+      }
+
+      p {
+        margin: 4px 0 0;
+        font-size: 1rem;
+        color: $text-color;
+      }
+    }
+  }
+}
+
+}
+}
+ 

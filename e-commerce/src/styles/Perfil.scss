@@ -1,0 +1,104 @@
+@import "../styles/variables.scss";
+
+.perfil-container {
+  min-height: 100vh;
+  background-color: $background;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $font-main;
+  padding: $spacing-lg;
+  flex-direction: column; // para que pedidos queden abajo y centrados
+}
+
+.perfil-box {
+  background: white;
+  padding: $spacing-lg;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba($primary, 0.3);
+  width: 100%;
+  max-width: 500px;
+}
+
+.perfil-title {
+  color: $title-color;
+  font-size: 28px;
+  margin-bottom: $spacing-lg;
+  text-align: center;
+}
+
+.perfil-dato {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+  font-size: $font-size-base;
+
+  .label {
+    font-weight: bold;
+    color: $primary;
+  }
+}
+
+.logout-button {
+  background-color: $primary; 
+  color: white;
+  font-size: $font-size-base;
+  padding: $spacing-sm;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: $spacing-md;
+
+  &:hover {
+    background-color: darken($secondary, 10%);
+  }
+}
+
+.pedidos-container {
+  margin-top: $spacing-lg;
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  padding: $spacing-md;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba($primary, 0.15);
+}
+
+.pedidos-container h2 {
+  color: $primary;
+  margin-bottom: $spacing-md;
+  font-size: 24px;
+  text-align: center;
+}
+
+.pedido-item {
+  border: 1px solid lighten($primary, 40%);
+  border-radius: 10px;
+  padding: $spacing-md;
+  margin-bottom: $spacing-md;
+  background-color: lighten($background, 5%);
+  box-shadow: 0 2px 8px rgba($primary, 0.1);
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba($primary, 0.2);
+  }
+}
+
+.pedido-item p {
+  font-weight: bold;
+  color: $secondary;
+  margin-bottom: $spacing-sm;
+}
+
+.pedido-item ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.pedido-item ul li {
+  font-size: $font-size-base;
+  margin-bottom: 0.3rem;
+  color: $title-color;
+}

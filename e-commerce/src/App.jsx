@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './styles/App.scss'
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Login from './components/Login';
+import Perfil from './components/Perfil';
+import Register from './components/Register'; 
+import Home from './components/Home';
+import ProductList from './components/Products/ProductList';
+import ProductDetail from './components/Products/ProductDetail';
+import Nosotros from './components/Nosotros';
+import Contacto from './components/Contacto';
+import Carrito from './components/Carrito';
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+
+      <main>
+        <Routes>
+  
+          <Route path="/" element={<Home />} />
+
+        
+          <Route path="/productos" element={<ProductList />} />
+          <Route path="/productos/:id" element={<ProductDetail />} />
+
+       
+          <Route path="/nosotros" element={<Nosotros />} />     
+          <Route path="/contacto" element={<Contacto />} />   
+
+          
+          <Route path="/login" element={<Login />} />
+          <Route path="/perfil" element={<Perfil />} />
+          <Route path="/register" element={<Register />} />
+
+         
+          <Route path="/carrito" element={<Carrito />} />
+        </Routes>
+      </main>
+
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+

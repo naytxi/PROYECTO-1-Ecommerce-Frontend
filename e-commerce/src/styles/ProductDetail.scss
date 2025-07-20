@@ -1,0 +1,99 @@
+@import "../styles/variables.scss";
+
+.product-detail-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: $spacing-lg;
+  background-color: $background;
+  min-height: calc(100vh - 120px); 
+  font-family: $font-main;
+  color: $text-color;
+}
+
+.product-detail-container {
+  display: flex;
+  flex-direction: column; 
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba($primary, 0.1);
+  padding: $spacing-lg;
+  max-width: 900px;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    flex-direction: row; 
+    align-items: flex-start;
+  }
+}
+
+.product-detail-image {
+  width: 100%;
+  max-width: 250px;  
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: $spacing-md;  
+
+  @media (min-width: 768px) {
+    margin-right: $spacing-md;  
+    margin-bottom: 0;
+  }
+}
+
+.product-detail-info {
+  flex-grow: 1;
+  text-align: center;
+
+
+  @media (min-width: 768px) {
+    text-align: left;
+  }
+
+  h2 {
+    font-size: $font-size-h1;
+    color: $title-color;
+    margin-bottom: $spacing-md;
+    font-family: $heading-font;
+  }
+
+  .product-detail-description {
+    font-size: $font-size-base;
+    line-height: 1.6;
+    margin-bottom: $spacing-lg;
+  }
+
+  .product-detail-price {
+    font-size: $font-size-lg;
+    color: $secondary;
+    font-weight: bold;
+    display: block;
+    margin-bottom: $spacing-lg;
+  }
+
+  .add-cart-btn {
+    background-color: #f26522;
+    color: white;
+    border: none;
+    padding: $spacing-md $spacing-lg;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: $font-main;
+    font-weight: bold;
+    font-size: $font-size-base;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: darken(#f26522, 10%);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+
+.loading-message, .not-found-message {
+  text-align: center;
+  padding: $spacing-lg;
+  font-size: $font-size-lg;
+  color: $text-color;
+}

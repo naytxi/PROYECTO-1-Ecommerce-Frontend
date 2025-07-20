@@ -1,0 +1,152 @@
+@import "../styles/variables.scss";
+
+.products-page {
+  padding: $spacing-lg;
+  background-color: $background;
+  font-family: $font-main;
+
+  h1 {
+    text-align: left;
+    color: $title-color;
+    margin-bottom: $spacing-xl;
+    font-size: $font-size-h1;
+  }
+
+  p {
+    text-align: center;
+    color: $text-color;
+  }
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 35px; 
+  justify-items: center;
+  padding: $spacing-md;
+}
+
+.product-card {
+  width: 100%;
+  max-width: 280px;
+  padding: $spacing-md;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 20 24px 24px rgba($primary, 0.8);
+  color: $text-color;
+  font-size: $font-size-base;
+  transition: transform 0.3s ease, box-shadow 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 2px solid lighten($primary, 40%);
+  position: relative;
+
+  img {
+    width: 80%;         
+    max-height: 120px;   
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: $spacing-md;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+   box-shadow: 0 4px 12px $primary;
+  }
+
+  .product-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    flex-grow: 1;
+  }
+
+  h3 {
+    font-size: $font-size-md; 
+    color: $title-color;
+    margin-bottom: $spacing-sm;
+    font-family: $heading-font;
+    line-height: 1.3;
+  }
+
+  p {
+    margin-bottom: $spacing-sm;
+    color: $text-color;
+    font-size: $font-size-sm;
+    flex-grow: 1;
+  }
+
+  span {
+    font-weight: bold;
+    color: $secondary; 
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-md;
+  }
+
+  .add-cart-btn {
+    background-color: #f26522; 
+    color: white;
+    border: none;
+    padding: $spacing-sm $spacing-md;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: $font-main;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+    width: 90%;
+    margin-top: auto;
+  }
+
+  .add-cart-btn:hover {
+    background-color: darken(#f26522, 10%);
+  }
+}
+
+.add-cart-btn.added {
+  background-color:$secondary;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+
+.search-bar {
+  width: 100%;
+  max-width: 400px;
+  margin: 2rem auto 1rem;
+  display: flex;
+  justify-content: center;
+
+  input {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+}
+
+.search-filter-bar {
+  max-width: 600px;
+  margin: 2rem auto 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  input, select {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    flex: 1;
+    min-width: 200px;
+  }
+}
+

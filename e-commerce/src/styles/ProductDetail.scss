@@ -29,14 +29,14 @@
 
 .product-detail-image {
   width: 100%;
-  max-width: 350px; 
+  max-width: 250px;  
   height: auto;
   object-fit: contain;
   border-radius: 8px;
-  margin-bottom: $spacing-lg; 
+  margin-bottom: $spacing-md;  
 
   @media (min-width: 768px) {
-    margin-right: $spacing-lg; 
+    margin-right: $spacing-md;  
     margin-bottom: 0;
   }
 }

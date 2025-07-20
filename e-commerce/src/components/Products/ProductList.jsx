@@ -1,3 +1,4 @@
+
 import React, { useContext, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import "../../styles/Product.scss";
@@ -7,7 +8,7 @@ const ProductList = () => {
   const { products, getProducts } = useContext(ProductsContext);
 
   useEffect(() => {
-    getProducts(); 
+    getProducts();
   }, []);
 
   if (!products || products.length === 0) return <p>No hay productos disponibles</p>;

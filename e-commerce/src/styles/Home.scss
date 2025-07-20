@@ -59,7 +59,7 @@
     padding: $spacing-md; 
     transition: box-shadow 0.3s ease;
     cursor: pointer;
-    border: 1px solid $primary;
+    border: 2px solid lighten($primary, 40%);
     min-height: 140px; 
   
     &:hover {

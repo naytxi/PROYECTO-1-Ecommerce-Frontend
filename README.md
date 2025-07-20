@@ -20,7 +20,7 @@ Estas son las tecnologías principales usadas en este proyecto frontend:
 - **React Router DOM**: Para gestionar la navegación entre diferentes páginas y componentes.
 - **Context API**: Para manejar el estado global de la aplicación de forma sencilla y escalable.
 - **Fetch / Axios**: Para hacer llamadas HTTP a la API del backend.
-- **CSS Modules / Styled Components** (o la que uses): Para estilizar los componentes y mantener el código organizado.
+- **SCSS Modules / Styled Components** : Para estilizar los componentes y mantener el código organizado.
 
 ---
 

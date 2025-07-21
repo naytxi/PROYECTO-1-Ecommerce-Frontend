@@ -55,12 +55,21 @@ const Perfil = () => {
           <span>{user.role}</span>
         </div>
 
+        {/* ✅ Botón solo para administradores */}
+        {user.role === "admin" && (
+          <div style={{ marginTop: "1rem" }}>
+            <button className="admin-button" onClick={() => navigate("/admin")}>
+              Ir al panel de administración
+            </button>
+          </div>
+        )}
+
         <button className="logout-button" onClick={handleLogout}>
           Cerrar sesión
         </button>
       </div>
 
-      <div className="pedidos-container" >
+      <div className="pedidos-container">
         <h2>Mis Pedidos</h2>
         {loadingPedidos ? (
           <p>Cargando pedidos...</p>
@@ -88,3 +97,6 @@ const Perfil = () => {
 };
 
 export default Perfil;
+
+
+

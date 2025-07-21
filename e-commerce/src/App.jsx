@@ -10,6 +10,8 @@ import ProductDetail from './components/Products/ProductDetail';
 import Nosotros from './components/Nosotros';
 import Contacto from './components/Contacto';
 import Carrito from './components/Carrito';
+import AdminPanel from './components/Admin/AdminPanel';
+
 
 
 function App() {
@@ -37,6 +39,9 @@ function App() {
 
          
           <Route path="/carrito" element={<Carrito />} />
+
+          <Route path="/admin" element={<AdminPanel />} />
+
         </Routes>
       </main>
 

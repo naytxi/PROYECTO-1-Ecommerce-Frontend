@@ -52,7 +52,8 @@ const ProductForm = ({ initialData = null, onSuccess, onCancel }) => {
 
   return (
     <form className="product-form" onSubmit={handleSubmit}>
-      <h3>{initialData ? "Editar Producto" : "Nuevo Producto"}</h3>
+      <h3 className="form-title">{initialData ? "Editar Producto" : "Nuevo Producto"}</h3>
+
       
       <input name="name" placeholder="Nombre" value={form.name} onChange={handleChange} required />
       <textarea name="description" placeholder="Descripción" value={form.description} onChange={handleChange} required />

@@ -1,3 +1,5 @@
+@import "../styles/variables.scss";
+
 .product-form {
   background-color: #f9f9f9;
   padding: 1.5rem;
@@ -32,7 +34,7 @@
     }
 
     button[type="submit"] {
-      background-color: #28a745;
+      background-color: darken(#f26522, 10%);
       color: white;
     }
 
@@ -42,3 +44,11 @@
     }
   }
 }
+
+.form-title {
+  color: $primary;
+  font-size: 22px;
+  margin-bottom: $spacing-md;
+  text-align: center;
+}
+

@@ -1,3 +1,5 @@
+@import "../styles/variables.scss";
+
 .admin-panel {
   padding: 2rem;
 }
@@ -26,7 +28,7 @@
 }
 
 .create-btn {
-  background-color: #28a745;
+  background-color:darken(#f26522, 10%);
   color: white;
   margin-bottom: 1rem;
 }
@@ -41,14 +43,12 @@
   color: white;
 }
 
-.create-btn {
-  background-color: #28a745;
-  color: white;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  margin: 1rem 0;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+.admin-title {
+  color: $primary;
+  font-size: 28px;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
+
+
 

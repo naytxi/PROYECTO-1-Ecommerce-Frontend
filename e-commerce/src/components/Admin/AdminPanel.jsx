@@ -61,7 +61,8 @@ const AdminPanel = () => {
 
   return (
     <div className="admin-panel">
-      <h2>Panel de administración de productos</h2>
+      <h2 className="admin-title">Panel de administración de productos</h2>
+
 
       {!showForm && (
         <>
